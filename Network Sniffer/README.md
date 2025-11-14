@@ -1,18 +1,36 @@
-# Packet Sniffer Project
+# Network Sniffer
 
-## Introduction
-This project captures network traffic and analyzes the captured packets to display important details like source IP, destination IP, and protocol used.
+A simple, educational packet sniffer built with **Python 3** and **Scapy**.
+Designed for learning packet inspection and traffic analysis (IP/TCP/UDP/DNS).
 
 ## Features
-- Captures network traffic and displays detailed packet information.
-- Shows source and destination IP addresses.
-- Displays protocol type (TCP, UDP, DNS).
-- Displays source and destination ports for TCP/UDP traffic.
+- Real-time packet capture and tidy console output
+- Identifies TCP / UDP / DNS packets and shows source/destination IP and ports
+- Supports BPF filtering (e.g., `tcp`, `port 53`)
+- Optional PCAP export with `-o filename.pcap`
+- Graceful Ctrl+C handling and safe exit
 
 ## Requirements
 - Python 3.x
-- Scapy library: Install it using `pip install scapy`.
+- scapy
+Install dependency:
+  ```bash
+  pip install scapy --break-system-packages
+  ```
+- rich
+Install dependency:
+  ```bash
+  pip install rich --break-system-packages
+  ```
 
 ## How to Run
-- python Network_Sniffer_Mr.py
+- Run until Ctrl+C on default interface
+  ```bash
+  python Network_Sniffer_Mr.py
+  ```
+- Capture 200 TCP packets on interface eth0 and save to capture.pcap
+  ```bash
+  sudo python3 Network_Sniffer_Mr.py -i eth0 -c 200 -f "tcp" -o capture.pcap
+  ```
+
 
